@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import 'zone.js';
+import { SupabaseService } from './app/supabase.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,9 @@ export class App {
   ngxEnv = import.meta.env.NG_APP_ENV;
   supabaseUrl = import.meta.env.NG_APP_PUBLIC_SUPABASE_URL;
   supabaseKey = import.meta.env.NG_APP_PUBLIC_SUPABASE_ANON_KEY;
+
+  private supabaseService = inject(SupabaseService);
+
 }
 
 bootstrapApplication(App);
